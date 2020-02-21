@@ -1,22 +1,25 @@
 package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OddNumbersExterminator {
 
-    public int exterminate(ArrayList<Integer> numbers) {
-        ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+    public List<Integer> exterminate(List<Integer> numbers) {
+        List<Integer> evenNumbers = new ArrayList<>();
         for (Integer number : numbers){
             if (number % 2 == 0) {
                 evenNumbers.add(number);
             }
         }
         System.out.println("Size of even numbers list: " + evenNumbers.size());
-        return evenNumbers.size();
+        int result = evenNumbers.size();
+        return evenNumbers;
+
     }
     public static void main(String[] args){
 
-        ArrayList<Integer> evenAndOddNumbers = new ArrayList<Integer>();
+        List<Integer> evenAndOddNumbers = new ArrayList<>();
         evenAndOddNumbers.add(3);
         evenAndOddNumbers.add(1);
         evenAndOddNumbers.add(2);
@@ -25,5 +28,6 @@ public class OddNumbersExterminator {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         oddNumbersExterminator.exterminate(evenAndOddNumbers);
     }
-}
+
+   }
 

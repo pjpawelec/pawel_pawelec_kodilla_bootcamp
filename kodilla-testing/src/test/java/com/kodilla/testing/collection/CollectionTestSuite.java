@@ -26,7 +26,7 @@ public class CollectionTestSuite {
         System.out.println("Testing if empty.");
         ArrayList<Integer> empty = new ArrayList<Integer>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        int result = oddNumbersExterminator.exterminate(empty);
+        int result = oddNumbersExterminator.exterminate(empty).size();
         Assert.assertTrue(result==0);
     }
 
@@ -37,7 +37,7 @@ public class CollectionTestSuite {
         evenAndOdd.add(1);
         evenAndOdd.add(2);
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        int result = oddNumbersExterminator.exterminate(evenAndOdd);
+        int result = oddNumbersExterminator.exterminate(evenAndOdd).size();
         Assert.assertTrue(result==1);
 
     }

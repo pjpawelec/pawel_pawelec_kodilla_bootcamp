@@ -12,9 +12,9 @@ public class StatisticsCalculator implements Statistics{
     private int usersNumber;
     private int postsNumber;
     private int commentsNumber;
-    private int avgPostsForUser;
-    private int avgCommentsForUser;
-    private int avgCommentsForPost;
+    private double avgPostsForUser;
+    private double avgCommentsForUser;
+    private double avgCommentsForPost;
 
     public StatisticsCalculator(List<String> users, int posts, int comments) {
         this.users = users;
@@ -45,9 +45,21 @@ public class StatisticsCalculator implements Statistics{
         usersNumber = users.size();
         postsNumber = posts;
         commentsNumber = comments;
-        avgPostsForUser = posts / users.size();
-        avgCommentsForUser = comments / users.size();
-        avgCommentsForPost = comments / posts;
+        if(users.size() == 0) {
+            avgPostsForUser = 0;
+        } else{
+            avgPostsForUser = posts / users.size();
+        }
+        if(users.size() == 0) {
+            avgCommentsForUser = 0;
+        } else{
+            avgCommentsForUser = comments / users.size();
+        }
+        if(posts == 0) {
+            avgCommentsForPost = 0;
+        } else{
+            avgCommentsForPost = comments / posts;
+        }
     }
 
     public void showStatiscics(){

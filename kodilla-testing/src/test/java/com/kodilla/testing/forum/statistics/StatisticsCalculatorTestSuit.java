@@ -37,11 +37,11 @@ public class StatisticsCalculatorTestSuit {
         double resultAvgCommentsUser = statistics.getAvgCommentsForUser();
         double resultAvgCommentsPost = statistics.getAvgCommentsForPost();
 
-        Assert.assertEquals(3, resultUsers);
-        Assert.assertEquals(15, resultPosts);
-        Assert.assertEquals(30, resultComments);
-        Assert.assertEquals(5.0, resultAvgPostsUsers,0.00001);
-        Assert.assertEquals(10.0, resultAvgCommentsUser,0.00001);
-        Assert.assertEquals(2.0, resultAvgCommentsPost,0.00001);
+        Assert.assertEquals(3, resultUsers, 0.00001);
+        Assert.assertEquals(15, resultPosts, 0.00001);
+        Assert.assertEquals(30, resultComments, 0.00001);
+        Assert.assertEquals(5, resultAvgPostsUsers,0.00001);
+        Assert.assertEquals(10, resultAvgCommentsUser,0.00001);
+        Assert.assertEquals(2, resultAvgCommentsPost,0.00001);
     }
 }

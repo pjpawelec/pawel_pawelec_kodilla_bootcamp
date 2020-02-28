@@ -84,14 +84,6 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksInHandsOf(){
-        //Given
-        LibraryUser user1 = new LibraryUser();
-        List<Book> usersBooks = new ArrayList<>();
 
-        //When
-        List<Book> resultBookList =
-
-        //Then
-        assertEquals(0, resultBookList);
     }
 }

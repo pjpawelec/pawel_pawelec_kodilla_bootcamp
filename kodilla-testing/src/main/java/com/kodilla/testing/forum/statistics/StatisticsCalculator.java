@@ -9,6 +9,13 @@ public class StatisticsCalculator implements Statistics{
     private int posts;
     private int comments;
 
+    private int usersNumber;
+    private int postsNumber;
+    private int commentsNumber;
+    private int avgPostsForUser;
+    private int avgCommentsForUser;
+    private int avgCommentsForPost;
+
     public StatisticsCalculator(List<String> users, int posts, int comments) {
         this.users = users;
         this.posts = posts;
@@ -16,7 +23,9 @@ public class StatisticsCalculator implements Statistics{
     }
 
     public StatisticsCalculator(Statistics statisticsMock) {
-
+        this.users = statisticsMock.userNames();
+        this.posts = statisticsMock.postCount();
+        this.comments =  statisticsMock.commentCount();
     }
 
     public List userNames() {
@@ -31,14 +40,7 @@ public class StatisticsCalculator implements Statistics{
         return comments;
     }
 
-    private int usersNumber;
-    private int postsNumber;
-    private int commentsNumber;
-    private int avgPostsForUser;
-    private int avgCommentsForUser;
-    private int avgCommentsForPost;
-
-    public void calculateAdvStatistics(Statistics statistics) {
+    public void calculateAdvStatistics() {
 
         usersNumber = users.size();
         postsNumber = posts;

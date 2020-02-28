@@ -18,7 +18,6 @@ public class StatisticsCalculatorTestSuit {
         //StatisticsCalculator statistics = new StatisticsCalculator(statistics2.userNames(), statistics2.postCount(), statistics2.commentCount());
 
         Statistics statisticsMock = mock(Statistics.class);
-        StatisticsCalculator statistics = new StatisticsCalculator(statisticsMock);
 
         List<String> forumUsers = new ArrayList<>();
         forumUsers.add("John");
@@ -28,7 +27,9 @@ public class StatisticsCalculatorTestSuit {
         when(statisticsMock.postCount()).thenReturn(15);
         when(statisticsMock.commentCount()).thenReturn(30);
 
-        statistics.calculateAdvStatistics(statisticsMock);
+        StatisticsCalculator statistics = new StatisticsCalculator(statisticsMock);
+
+        statistics.calculateAdvStatistics();
         int resultUsers = statistics.getUsersNumber();
         int resultPosts = statistics.getPostsNumber();
         int resultComments = statistics.getCommentsNumber();

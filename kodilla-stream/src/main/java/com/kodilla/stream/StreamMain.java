@@ -1,39 +1,25 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.reference.FunctionalOperator;
+
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args){
-        Processor processor = new Processor();
-        //ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-        Executor codeToExecute = () -> System.out.println("This is an example text.");
-        processor.execute(codeToExecute);
+        Forum forum = new Forum();
 
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        Map<Integer, Object> usersResultList = forum.getUserList().stream()
+                .filter(user -> user.getSex() == 'M')
+                .filter(user -> user.getBirthDate().getYear() > 2000)
+                .filter(user -> user.getPublicatedPostNumber() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserId, user -> user.getUserName()));
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10,5,(a,b) -> a + b);
-        expressionExecutor.executeExpression(10,5,(a,b) -> a - b);
-        expressionExecutor.executeExpression(10,5,(a,b) -> a * b);
-        expressionExecutor.executeExpression(10,5,(a,b) -> a / b);
-
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(10,5, FunctionalOperator::addAToB);
-        expressionExecutor.executeExpression(10,5, FunctionalOperator::subBFromA);
-        expressionExecutor.executeExpression(10,5, FunctionalOperator::multiplyAByB);
-        expressionExecutor.executeExpression(10,5, FunctionalOperator::divideAByB);
-        System.out.println("\n" + "Zadanie 7.1: ");
-
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Słońce", text -> text + " świeci za dnia.");
-        poemBeautifier.beautify("księżyc", text -> "A w nocy świeci " + text + ".");
-        poemBeautifier.beautify("wielkie litery", text -> text.toUpperCase());
-        poemBeautifier.beautify("MALE LITERY", text -> text.toLowerCase());
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        System.out.println("Liczba użytkowników spełniających warunki: " + usersResultList.size());
+        usersResultList.entrySet().stream()
+                .map(entry -> entry.getKey()+ ", " + entry.getValue())
+                .forEach(System.out::println);
     }
 }

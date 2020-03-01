@@ -1,6 +1,7 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
 
 public final class ForumUser {
     final private int userId;
@@ -8,6 +9,7 @@ public final class ForumUser {
     final private char sex;
     final private LocalDate birthDate;
     final private int publicatedPostNumber;
+    final private LocalDate today = LocalDate.now();
 
     public ForumUser(int userId, String userName, char sex, int yearOfBirth, int monthOfBirth, int dayOfBirth, int publicatedPostNumber) {
         this.userId = userId;
@@ -35,5 +37,10 @@ public final class ForumUser {
 
     public int getPublicatedPostNumber() {
         return publicatedPostNumber;
+    }
+
+    public int ageToday(){
+        int result = today.compareTo(birthDate);
+        return result;
     }
 }

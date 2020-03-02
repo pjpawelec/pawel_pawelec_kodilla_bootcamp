@@ -13,7 +13,7 @@ public class StreamMain {
 
         Map<Integer, Object> usersResultList = forum.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
-                .filter(user -> user.ageToday() > 19)
+                .filter(user -> user.ageToday() == true)
                 .filter(user -> user.getPublicatedPostNumber() > 0)
                 .collect(Collectors.toMap(ForumUser::getUserId, user -> user.getUserName()));
 
@@ -21,8 +21,5 @@ public class StreamMain {
         usersResultList.entrySet().stream()
                 .map(entry -> entry.getKey() + ", " + entry.getValue())
                 .forEach(System.out::println);
-
-        ForumUser forumUser = new ForumUser(1001, "Jarosław Kowalski", 'M', 1979, 5, 12, 0);
-        forumUser.ageToday();
     }
 }

@@ -21,7 +21,7 @@ public final class Book {
         return author;
     }
 
-    public int getYearOfPoblication() {
+    public int getYearOfPublication() {
         return yearOfPoblication;
     }
 

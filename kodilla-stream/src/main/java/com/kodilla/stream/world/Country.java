@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public final class Country {
     private final String countryName;
-    private final int population;
+    private final BigDecimal population;
 
-    public Country(String countryName, int population) {
+    public Country(String countryName, BigDecimal population) {
         this.countryName = countryName;
         this.population = population;
     }
@@ -15,12 +15,12 @@ public final class Country {
         return countryName;
     }
 
-    public int getPopulation() {
+    public BigDecimal getPopulation() {
         return population;
     }
 
     public final BigDecimal getPeopleQuantity(){
-        BigDecimal peopleQuantity = new BigDecimal(population);
+        BigDecimal peopleQuantity = population;
         return peopleQuantity;
     }
 }

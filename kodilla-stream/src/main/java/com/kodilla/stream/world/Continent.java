@@ -9,18 +9,22 @@ public final class Continent {
     final private List<Country> countries = new ArrayList();
 
     public Continent(String continentName) {
+
         this.continentName = continentName;
     }
 
     public void addCountry(Country country){
+
         countries.add(country);
     }
 
     public String getContinentName() {
+
         return continentName;
     }
 
     public List<Country> getCountries() {
+
         return countries;
     }
 }

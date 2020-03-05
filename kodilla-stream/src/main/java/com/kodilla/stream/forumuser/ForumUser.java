@@ -9,7 +9,6 @@ public final class ForumUser {
     final private char sex;
     final private LocalDate birthDate;
     final private int publicatedPostNumber;
-    final private LocalDate ageTresholdDate = LocalDate.now().minusYears(20).plusDays(1);
 
     public ForumUser(int userId, String userName, char sex, int yearOfBirth, int monthOfBirth, int dayOfBirth, int publicatedPostNumber) {
         this.userId = userId;
@@ -39,7 +38,8 @@ public final class ForumUser {
         return publicatedPostNumber;
     }
 
-    public boolean ageToday(){
+    public boolean userOlderThanExpectedAge(int age){
+        LocalDate ageTresholdDate = LocalDate.now().minusYears(age).plusDays(1);
         boolean result = birthDate.isBefore(ageTresholdDate);
         return result;
     }

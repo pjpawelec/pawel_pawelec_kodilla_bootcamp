@@ -7,13 +7,11 @@ import java.util.List;
 public final class World {
     private List<Continent> continents = new ArrayList<>();
 
-    public void addContinent() {
-        continents.add(new Continent("Europe"));
-        continents.add(new Continent("Asia"));
-        continents.add(new Continent("Africa"));
+    public void addContinent(Continent continent) {
+        continents.add(continent);
     }
 
-    public List<Continent> getPeopleQuantity(){
+    public BigDecimal getPeopleQuantity(){
         return continents.stream()
                 .flatMap(country -> country.getCountries().stream())
                 .map(Country::getPeopleQuantity)

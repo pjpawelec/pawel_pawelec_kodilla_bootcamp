@@ -9,24 +9,27 @@ public class WorldTestSuite {
 
     @Test
     public void testGetPeopleQuantity(){
-        //Given
+
         Continent europe = new Continent("Europe");
         Continent asia = new Continent("Asia");
         Continent africa = new Continent("Africa");
-        World world = new World();
 
-        //When
-        europe.addCountry(new Country("Poland", 50000));
-        europe.addCountry(new Country("Germany", 80000));
-        asia.addCountry(new Country("China", 100000));
-        asia.addCountry(new Country("Japan", 60000));
-        africa.addCountry(new Country("Kenya", 30000));
-        africa.addCountry(new Country("Eqypt", 50000));
+        europe.addCountry(new Country("Poland", new BigDecimal("50000")));
+        europe.addCountry(new Country("Germany", new BigDecimal("80000")));
+        asia.addCountry(new Country("China", new BigDecimal("100000")));
+        asia.addCountry(new Country("Japan", new BigDecimal("60000")));
+        africa.addCountry(new Country("Kenya", new BigDecimal("30000")));
+        africa.addCountry(new Country("Eqypt", new BigDecimal("50000")));
+
+        World world = new World();
+        world.addContinent(europe);
+        world.addContinent(asia);
+        world.addContinent(africa);
 
         BigDecimal resultPopulation = world.getPeopleQuantity();
 
-        //Then
         BigDecimal expectedPopulation = new BigDecimal("370000");
+
         Assert.assertEquals(expectedPopulation, resultPopulation);
     }
 }

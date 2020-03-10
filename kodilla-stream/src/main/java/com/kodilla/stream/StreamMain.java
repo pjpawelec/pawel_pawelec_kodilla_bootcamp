@@ -7,6 +7,7 @@ import com.kodilla.stream.forumuser.ForumUser;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -22,5 +23,7 @@ public class StreamMain {
         usersResultList.entrySet().stream()
                 .map(entry -> entry.getKey() + ", " + entry.getValue())
                 .forEach(System.out::println);
+
+        System.out.println(ArrayOperations.getAverage(IntStream.range(0, 21).toArray()));
     }
 }

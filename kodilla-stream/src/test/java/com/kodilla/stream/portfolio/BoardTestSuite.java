@@ -93,7 +93,7 @@ public class BoardTestSuite {
                 .filter(t -> t.getAssignedUser().equals(user))
                 .collect(toList());
         //Then
-        Assert.assertEquals(2,tasks.size());
+        Assert.assertEquals(2, tasks.size());
         Assert.assertEquals(user, tasks.get(0).getAssignedUser());
         Assert.assertEquals(user, tasks.get(1).getAssignedUser());
     }
@@ -138,7 +138,30 @@ public class BoardTestSuite {
     }
 
     @Test
-    testAddTaskListAverageWorkingOnTask(){
+    public void testAddTaskListAverageWorkingOnTask() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        long sumOfDaysInProgress = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated())
+                .map(d -> d.getDayOfYear()-LocalDate.now().getDayOfYear())
+                .count();
+
+        long numberOfTasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .count();
+
+        long averageDaysInProgress = sumOfDaysInProgress / numberOfTasks;
+
+        //Then
+        Assert.assertEquals(10, averageDaysInProgress);
 
     }
 }

@@ -24,7 +24,7 @@ public class RpsRunner {
                 computerPoints = computerPoints + 0;
             }
             if (playerChoice == 1 && computerChoice == 2) {
-                playerPoints = +0;
+                playerPoints = playerPoints + 0;
                 computerPoints = computerPoints + 1;
             }
             if (playerChoice == 1 && computerChoice == 3) {

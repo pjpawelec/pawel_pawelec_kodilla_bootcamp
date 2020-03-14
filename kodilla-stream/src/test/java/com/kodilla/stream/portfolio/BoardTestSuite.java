@@ -3,7 +3,9 @@ package com.kodilla.stream.portfolio;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,7 +110,7 @@ public class BoardTestSuite {
         undoneTasks.add(new TaskList("To do"));
         undoneTasks.add(new TaskList("In progress"));
         List<Task> tasks = project.getTaskLists().stream()
-                .filter(undoneTasks::contains)
+                .filter(s -> s.getName().equals("To do") || s.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .filter(t -> t.getDeadline().isBefore(LocalDate.now()))
                 .collect(toList());
@@ -127,7 +129,7 @@ public class BoardTestSuite {
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
         long longTasks = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+                .filter(s->s.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
@@ -147,14 +149,14 @@ public class BoardTestSuite {
         inProgressTasks.add(new TaskList("In progress"));
 
         long sumOfDaysInProgress = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+                .filter(s->s.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
-                .map(d -> d.getDayOfYear()-LocalDate.now().getDayOfYear())
-                .count();
+                .mapToLong(d -> ChronoUnit.DAYS.between(d,LocalDate.now()))
+                .sum();
 
         long numberOfTasks = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+                .filter(s->s.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .count();
 

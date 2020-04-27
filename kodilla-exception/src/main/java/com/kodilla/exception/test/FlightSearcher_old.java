@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FlightSearcher {
+public class FlightSearcher_old {
 
-    public void findFlight(Flight flight) {
+    public void findFlight(Flight_old flightOld) {
 
-        String from = flight.getDepartureAirport();
-        String to = flight.getArrivalAirport();
+        String from = flightOld.getDepartureAirport();
+        String to = flightOld.getArrivalAirport();
         List<String> possibleDestinations = null;
         List<String> possibleDestinationsSecondRow;
         boolean foundFlight = false;
@@ -20,6 +20,7 @@ public class FlightSearcher {
         List<String> destinationsFromWarsaw = new ArrayList<>();
         destinationsFromWarsaw.add("Berlin");
         destinationsFromWarsaw.add("Tokio");
+
 
         List<String> destinationsFromBerlin = new ArrayList<>();
         destinationsFromBerlin.add("New York");
@@ -66,7 +67,6 @@ public class FlightSearcher {
                             if (secondRowElement.equals(to)) {
                                 System.out.println("Znalazłem połączenie do " + to + " z przesiadką w " + element + ".");
                             } else {
-                                //System.out.println("A" + optionalAirportsCounter);
                                 falseCounter++;
                             }
                         }

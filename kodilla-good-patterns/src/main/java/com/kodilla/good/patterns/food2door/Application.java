@@ -7,7 +7,7 @@ import java.util.Map;
 public class Application {
 
     public static void main(String[] args) {
-
+        System.out.println("TO JEST WYNIK KOMPILACJI");
         Map<String, Integer> suplier1Products = new HashMap<>();
         suplier1Products.put("Apple", 500);
         suplier1Products.put("Orange", 1000);

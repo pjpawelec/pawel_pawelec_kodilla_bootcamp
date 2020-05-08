@@ -25,7 +25,7 @@ public class FlightFinder {
         return flightPossible;
     }
 
-    public List<String> isFlightPossible(String from, String to, List<String> list) {
+    private List<String> isFlightPossible(String from, String to, List<String> list) {
         if (availableFlights.get(from) == null) {
             return null;
         }

@@ -1,30 +1,30 @@
 package com.kodilla.good.patterns.challenges;
 
 public class Product {
-    private ProductCategory CategoryAffiliation;
-    private String ProductName;
-    private double ProductPrice;
+    private ProductCategory categoryAffiliation;
+    private String productName;
+    private double productPrice;
 
     public Product(ProductCategory categoryAffiliation, String productName, double productPrice) {
-        CategoryAffiliation = categoryAffiliation;
-        ProductName = productName;
-        ProductPrice = productPrice;
+        categoryAffiliation = categoryAffiliation;
+        productName = productName;
+        productPrice = productPrice;
     }
 
     public ProductCategory getCategoryAffiliation() {
-        return CategoryAffiliation;
+        return categoryAffiliation;
     }
 
     public String getProductName() {
-        return ProductName;
+        return productName;
     }
 
     public double getProductPrice() {
-        return ProductPrice;
+        return productPrice;
     }
 
     @Override
     public String toString() {
-        return ProductName;
+        return productName;
     }
 }

@@ -1,18 +1,18 @@
 package com.kodilla.good.patterns.challenges;
 
 public class User {
-    private String UserId;
+    private String userId;
 
     User (String UserId){
-        this.UserId = UserId;
+        this.userId = UserId;
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     @Override
     public String toString() {
-        return "" + UserId;
+        return "" + userId;
     }
 }

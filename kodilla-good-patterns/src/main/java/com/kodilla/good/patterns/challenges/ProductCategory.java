@@ -1,16 +1,16 @@
 package com.kodilla.good.patterns.challenges;
 
 public class ProductCategory {
-    private String CategoryName;
-    private int CategoryNumber;
+    private String categoryName;
+    private int categoryNumber;
 
     public ProductCategory(String categoryName, int categoryNumber) {
-        CategoryName = categoryName;
-        CategoryNumber = categoryNumber;
+        categoryName = categoryName;
+        categoryNumber = categoryNumber;
     }
 
     @Override
     public String toString() {
-        return CategoryName;
+        return categoryName;
     }
 }

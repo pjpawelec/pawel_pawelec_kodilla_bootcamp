@@ -1,14 +1,18 @@
 package com.kodilla.testing.library;
 
+import java.util.List;
+
 public class LibraryUser {
     String firstname;
     String lastname;
     String peselId;
+    List<Book> borrowedBooks;
 
-    public LibraryUser(String firstname, String lastname, String peselId) {
+    public LibraryUser(String firstname, String lastname, String peselId, List<Book> borrowedBooks) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.peselId = peselId;
+        this.borrowedBooks = borrowedBooks;
     }
 
     public String getFirstname() {
@@ -21,6 +25,10 @@ public class LibraryUser {
 
     public String getPeselId() {
         return peselId;
+    }
+
+    public List<Book> getBorrowedBooks() {
+        return borrowedBooks;
     }
 
     @Override
